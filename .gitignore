@@ -1,0 +1,45 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Obsidian workspace state (user-specific, not committed)
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/*/data.json
+
+# Personal vault content — never commit these
+template-vault/wiki/concepts/*
+template-vault/wiki/entities/*
+template-vault/wiki/sources/*
+template-vault/wiki/comparisons/*
+!template-vault/wiki/concepts/.gitkeep
+!template-vault/wiki/entities/.gitkeep
+!template-vault/wiki/sources/.gitkeep
+!template-vault/wiki/comparisons/.gitkeep
+
+template-vault/raw/articles/*
+template-vault/raw/papers/*
+template-vault/raw/research/*
+template-vault/raw/books/*
+template-vault/raw/assets/*
+!template-vault/raw/articles/.gitkeep
+!template-vault/raw/papers/.gitkeep
+!template-vault/raw/research/.gitkeep
+!template-vault/raw/books/.gitkeep
+!template-vault/raw/assets/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+.env
+
+# Editor
+.vscode/
+*.swp
+*.swo
