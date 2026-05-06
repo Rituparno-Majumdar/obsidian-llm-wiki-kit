@@ -1,5 +1,5 @@
 > Derived from [Andrej Karpathy's LLM Wiki](https://karpathy.ai/llmwiki) concept.
-> Original implementation by Rituparno Majumdar — https://github.com/Rituparno-Majumdar/obsidian-llm-wiki-kit
+> Original implementation — https://github.com/Rituparno-Majumdar/obsidian-llm-wiki-kit
 
 # LLM Wiki Kit — Claude Code Configuration
 

@@ -112,8 +112,7 @@ the whole greater than the sum of its parts.
   *How to Take Smart Notes* (2017), which remains the best introduction.
 - **Sönke Ahrens** — *How to Take Smart Notes* — popularized Luhmann's method
   for a general audience.
-- **Implementation** — this repo was built and refined by
-  Rituparno Majumdar, with contributions from the community.
+- **Implementation** — this repo was built and refined by me, with contributions from the community.
 
 ---
 
