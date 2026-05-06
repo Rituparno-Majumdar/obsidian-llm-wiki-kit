@@ -28,7 +28,8 @@ files to it.
 4. Obsidian will open with the template structure intact.
 
 You will see folders (`raw/`, `wiki/`) and a few files in the root. That is
-the entire vault scaffold.
+the entire vault scaffold. Obsidian will create a `.obsidian/` directory
+automatically — this is normal and stays local to your machine.
 
 ---
 

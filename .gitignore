@@ -3,7 +3,9 @@
 .AppleDouble
 .LSOverride
 
-# Obsidian workspace state (user-specific, not committed)
+# Obsidian config (user-local, not committed)
+# When users open template-vault/ in Obsidian it generates .obsidian/ automatically
+template-vault/.obsidian/
 .obsidian/workspace
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json

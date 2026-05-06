@@ -20,8 +20,7 @@ raw/books/summary.md   →   Synthesize [idea]  →   wiki/comparisons/
 
 The wiki lives in [Obsidian](https://obsidian.md) — so you get graph view, backlinks, and wikilinks for free. The LLM handles the bookkeeping.
 
-**This project was built and open-sourced by [Rituparno Majumdar](https://github.com/Rituparno-Majumdar).**
-Reference implementation also inspired by [kytmanov/obsidian-llm-wiki-local](https://github.com/kytmanov/obsidian-llm-wiki-local).
+*Built and open-sourced by me — [Rituparno Majumdar](https://github.com/Rituparno-Majumdar). Reference implementation also inspired by [kytmanov/obsidian-llm-wiki-local](https://github.com/kytmanov/obsidian-llm-wiki-local).*
 
 ---
 
