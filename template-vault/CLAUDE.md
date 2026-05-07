@@ -123,11 +123,11 @@ Same as standard Ingest, plus these rules if your vault uses non-English content
 
 ### Lint
 
-Spawn **{{LINTER_AGENT}}** — checks orphan pages, broken wikilinks, missing frontmatter, triad violations, stale sources, and contradictions.
+Spawn **{{LINTER_AGENT}}** — checks orphan pages, broken wikilinks, missing frontmatter, formatting violations (including multilingual triad rules where applicable), stale sources, and contradictions.
 
 Report format:
 ```
-X total pages | Y orphans | Z broken links | W suggestions
+X total pages | Y orphans | Z broken links | W missing frontmatter | V stale sources | U contradictions
 ```
 
 ---
@@ -144,7 +144,7 @@ Spawn **{{SYNTHESIS_AGENT}}** in comparison mode — generates `wiki/comparisons
 
 ---
 
-### fetch [BookName]
+### Fetch [BookName]
 
 Spawn **{{BOOK_FETCH_AGENT}}** — summarizes a published book chapter by chapter.
 
@@ -240,6 +240,23 @@ last_updated: YYYY-MM-DD
 ## Named Entities (wikilinks)
 ```
 
+### Comparison (`wiki/comparisons/`)
+
+```yaml
+---
+title: ""
+type: comparison
+items: ["[[ConceptA]]", "[[ConceptB]]"]
+tags: []
+created: YYYY-MM-DD
+last_updated: YYYY-MM-DD
+---
+## Overview
+## Dimension Table
+## Synthesis
+## Sources
+```
+
 ---
 
 ## Log Format
@@ -248,7 +265,7 @@ last_updated: YYYY-MM-DD
 ## [YYYY-MM-DD] [operation] | [description] — [X new, Y enriched]
 ```
 
-Operations: `ingest` · `research-gen` · `research-ingest` · `query-filed` · `lint` · `book-fetch` · `enrich`
+Operations: `ingest` · `research-gen` · `research-ingest` · `query-filed` · `lint` · `book-fetch` · `compare` · `enrich`
 
 **Example:**
 ```
@@ -263,6 +280,6 @@ Operations: `ingest` · `research-gen` · `research-ingest` · `query-filed` · 
 
 1. **Replace all `{{PLACEHOLDER}}` values** with your own names and routing table before use, or run the setup wizard (see below).
 2. **Run the meta-prompt wizard** at `meta-prompt-wizard/WIZARD.md` to auto-generate a personalized version of this file with your domains, agents, and persona filled in.
-3. **Add domain agents** by following the template in `agents/README.md`. Each agent gets its own `.md` file in `agents/` and a row in `{{AGENT_ROUTING_TABLE}}`.
+3. **Add domain agents** using `agents/_TEMPLATE.md` as a starting point, then copy them to `.claude/agents/` in your deployed vault for Claude Code to load them. See `agents/README.md` for full instructions. Each agent gets a row in `{{AGENT_ROUTING_TABLE}}`.
 4. **Add templates** for your research domains in `raw/templates/`. See the included examples for structure.
 5. **Multilingual vaults:** copy and adapt `raw/templates/multilingual-research.md` — it defines triad formatting rules for non-English content.

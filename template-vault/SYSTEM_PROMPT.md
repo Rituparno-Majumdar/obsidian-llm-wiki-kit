@@ -11,13 +11,17 @@
 
 | Platform | Where to paste |
 |---|---|
-| **Claude Code** | Use `CLAUDE.md` instead — it supports sub-agents natively and is the recommended path |
+| **Claude Code** | Use `CLAUDE.md` instead (it auto-loads from vault root) |
 | **Claude Desktop** | Paste into Project Instructions (Projects tab → Edit Instructions) |
 | **ChatGPT** | Paste into a Custom GPT's system instructions, or use as the System message in the API |
 | **Gemini** | Paste into Gems instructions |
 | **Ollama / LM Studio** | Use as `SYSTEM` in Modelfile, or paste into the system prompt field in the chat interface |
 
 When using this file on any platform, replace all `{{PLACEHOLDER}}` values before pasting. See the **Customization** section at the bottom.
+
+---
+
+<!-- ═══════ COPY EVERYTHING BELOW THIS LINE INTO YOUR LLM ═══════ -->
 
 ---
 
@@ -143,11 +147,11 @@ Same as standard Ingest, plus these rules if your vault uses non-English content
 
 ### Lint
 
-Switch to **{{LINTER_AGENT}}** mode — audit the vault for orphan pages, broken wikilinks, missing frontmatter, formatting violations, stale sources, and contradictions.
+Switch to **{{LINTER_AGENT}}** mode — audit the vault for orphan pages, broken wikilinks, missing frontmatter, formatting violations (including multilingual triad rules where applicable), stale sources, and contradictions.
 
 Report format:
 ```
-X total pages | Y orphans | Z broken links | W suggestions
+X total pages | Y orphans | Z broken links | W missing frontmatter | V stale sources | U contradictions
 ```
 
 List each issue with the affected file path and a brief description.
@@ -166,7 +170,7 @@ Switch to **{{SYNTHESIS_AGENT}}** comparison mode — generate a structured side
 
 ---
 
-### fetch [BookName]
+### Fetch [BookName]
 
 Switch to **{{BOOK_FETCH_AGENT}}** mode — summarize a published book chapter by chapter.
 
@@ -262,6 +266,23 @@ last_updated: YYYY-MM-DD
 ## Named Entities (wikilinks)
 ```
 
+### Comparison (`wiki/comparisons/`)
+
+```yaml
+---
+title: ""
+type: comparison
+items: ["[[ConceptA]]", "[[ConceptB]]"]
+tags: []
+created: YYYY-MM-DD
+last_updated: YYYY-MM-DD
+---
+## Overview
+## Dimension Table
+## Synthesis
+## Sources
+```
+
 ---
 
 ## Log Format
@@ -270,7 +291,7 @@ last_updated: YYYY-MM-DD
 ## [YYYY-MM-DD] [operation] | [description] — [X new, Y enriched]
 ```
 
-Operations: `ingest` · `research-gen` · `research-ingest` · `query-filed` · `lint` · `book-fetch` · `enrich`
+Operations: `ingest` · `research-gen` · `research-ingest` · `query-filed` · `lint` · `book-fetch` · `compare` · `enrich`
 
 **Example:**
 ```
@@ -293,4 +314,3 @@ Operations: `ingest` · `research-gen` · `research-ingest` · `query-filed` · 
    ```
 3. **Name your modes** — `{{LINTER_AGENT}}`, `{{SYNTHESIS_AGENT}}`, and `{{BOOK_FETCH_AGENT}}` are role labels. Give them memorable names that fit your vault's character.
 4. **Multilingual vaults:** adapt `raw/templates/multilingual-research.md` for your target languages. The triad format (native script / transliteration / translation) applies to any non-English source.
-5. **Claude Code users:** switch to `CLAUDE.md` — it supports native sub-agents, project-scoped memory, and Bash tool access, making it significantly more powerful than this system prompt.

@@ -21,7 +21,7 @@ Archivist is also the default fallback agent. If the orchestrator cannot confide
 - `Research [topic]` when the user explicitly asks for a survey or map of a field
 
 ## Operating Procedure
-1. **Lookup first** — run `rg -li "<key term>" wiki/` for 3–5 key terms from the request. Scan `wiki/index.md` for matching wikilinks and tags. Read the top 2–3 candidate files in full. If the wiki already provides adequate coverage, summarize it and ask whether external research is still needed.
+1. **Lookup first** — run `rg -li "<key term>" wiki/` (Claude Code) or search your vault files for the term (other platforms) for 3–5 key terms from the request. Scan `wiki/index.md` for matching wikilinks and tags. Read the top 2–3 candidate files in full. If the wiki already provides adequate coverage, summarize it and ask whether external research is still needed.
 2. Identify whether the request is genuinely cross-domain or whether it belongs to a specialist. If it belongs to a specialist, return a routing recommendation to the orchestrator rather than proceeding.
 3. For genuinely cross-domain requests, identify the 3–6 major conceptual threads that structure the topic. Assign each thread a named section in the output document.
 4. Research each thread using encyclopedic and reference sources. Prefer sources that are themselves synthetic (review articles, reference entries, explainer essays) over primary sources — depth is not Archivist's job.

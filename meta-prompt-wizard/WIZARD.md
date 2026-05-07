@@ -291,6 +291,12 @@ Output: a list of non-obvious connections with brief explanations.
 Generate wiki/comparisons/[A]-vs-[B].md with a structured side-by-side analysis.
 Update wiki/index.md and wiki/log.md after writing.
 
+### Fetch [BookName]
+
+Switch to **{{BOOK_FETCH_AGENT}}** mode — summarize a published book chapter by chapter.
+
+Save output to `raw/books/[BookName].md`. Do **NOT** auto-ingest — review first.
+
 {{#if MULTILINGUAL}}
 ## Multilingual Rules
 Non-English content must always appear as a triad:
@@ -307,6 +313,34 @@ All concept page titles must be in English. Native term goes in the native_term:
 
 ## Page Frontmatter Templates
 
+### Book (wiki/sources/)
+---
+title: ""
+type: book
+author: ""
+tags: []
+status: reading / completed
+rating: ""
+created: YYYY-MM-DD
+last_updated: YYYY-MM-DD
+---
+## Summary
+## Key Ideas
+## Atomic Concepts Extracted
+
+### Article / Paper (wiki/sources/)
+---
+title: ""
+type: article / paper
+tags: []
+url: ""
+created: YYYY-MM-DD
+last_updated: YYYY-MM-DD
+---
+## Summary
+## Key Ideas
+## Concepts Extracted
+
 ### Concept (wiki/concepts/)
 ---
 title: ""
@@ -321,24 +355,11 @@ last_updated: YYYY-MM-DD
 ## Connections
 ## Sources
 
-### Source (wiki/sources/)
----
-title: ""
-type: article | paper | book | research
-tags: []
-url: ""
-created: YYYY-MM-DD
-last_updated: YYYY-MM-DD
----
-## Summary
-## Key Ideas
-## Concepts Extracted
-
 ### Entity (wiki/entities/)
 ---
 title: ""
 type: entity
-subtype: person | org | tool | product
+subtype: person / org / tool / product
 tags: []
 created: YYYY-MM-DD
 last_updated: YYYY-MM-DD
@@ -347,9 +368,26 @@ last_updated: YYYY-MM-DD
 ## Key Contributions
 ## Appearances In Wiki
 
+### Research Source (wiki/sources/)
+---
+title: ""
+type: research
+traditions: []
+civilizations: []
+tags: []
+source_file: raw/research/[filename].md
+created: YYYY-MM-DD
+last_updated: YYYY-MM-DD
+---
+## Summary
+## Traditions Covered
+## Key Concepts by Tradition
+## Named Concepts (wikilinks)
+## Named Entities (wikilinks)
+
 ## Log Format
 ## [YYYY-MM-DD] [operation] | [description] — [X new, Y enriched]
-Operations: ingest · research-gen · research-ingest · query-filed · lint · compare · enrich
+Operations: ingest · research-gen · research-ingest · query-filed · lint · book-fetch · compare · enrich
 ```
 ````
 
@@ -444,6 +482,8 @@ Never collapse to English-only. Concept titles always in English.
 *Generate one complete agent file per domain listed in Section 1.
 Name each agent after something evocative of the domain — a famous figure,
 a mythological entity, or a field-appropriate name.
+Do not name any domain agent with a reserved name. Reserved names (already used by
+template examples): Generalist, Librarian, Synthesizer, Codex, Nexus, Archivist.
 If the user's LLM has no sub-agents: embed these as named modes in SYSTEM_PROMPT.md
 instead of generating separate files, using trigger phrases to activate each mode.*
 
@@ -452,9 +492,11 @@ Template for each agent file (agents/[domain-name].md):
 ````markdown
 ```markdown
 ---
-agent_name: {{EVOCATIVE_NAME}}
-domain: {{DOMAIN}}
-version: 1.0
+name: {{agent-slug}}
+description: >
+  {{one or two sentence trigger description}}
+# Include `tools:` line only if user selected Claude Code in Section 2.
+tools: [Read, Write, WebSearch, WebFetch]
 ---
 
 # {{EVOCATIVE_NAME}} — {{DOMAIN}} Specialist
@@ -780,7 +822,7 @@ SAFETY RAILS — do not violate:
    - If the user's LLM does not support sub-agents (answered "no" to Section 2 Q3):
      merge all domain agents into SYSTEM_PROMPT.md as named modes with explicit
      trigger phrases. Do not generate separate agent files.
-   - Use "Enter [DomainName Mode]" language instead of "spawn agent [name]".
+   - Use "Switch to [mode]" language instead of "spawn agent [name]".
 
 9. File access fallback
    - If the user's LLM has no file access (answered "no" to Section 2 Q2):

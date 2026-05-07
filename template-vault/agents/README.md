@@ -66,6 +66,8 @@ The procedure is:
 rg -li "<key term>" wiki/
 ```
 
+`rg -li "<key term>" wiki/` (Claude Code) or search your vault files for the term (other platforms).
+
 Run this for 3–5 key terms from the research request. Scan `wiki/index.md` for matching wikilinks and tags. Read the top 2–3 candidate files in full.
 
 If the wiki already has substantial coverage of the topic, the agent must:
@@ -150,23 +152,13 @@ Follow these steps exactly:
 
 ---
 
-## 7. Reserved Names
+## 7. Reserved Agent Names
 
-The following names are used by the template system and must not be reused for custom agents:
+The following names are used by the template examples and must not be reused for new agents:
 
-| Name | Role |
-|---|---|
-| `Generalist` | Placeholder label for the cross-domain example agent |
-| `Librarian` | Placeholder label for the vault hygiene example agent |
-| `Synthesizer` | Placeholder label for the synthesis example agent |
+`Generalist` · `Librarian` · `Synthesizer` · `Archivist` · `Codex` · `Nexus`
 
-Within a deployed kit, the example agents use:
-
-| Name | Role |
-|---|---|
-| `Archivist` | Cross-domain generalist research |
-| `Codex` | Vault health and linting |
-| `Nexus` | Cross-page synthesis and connection-finding |
+These correspond to the example agents in `examples/`. Choose a different name for your custom agents.
 
 ---
 

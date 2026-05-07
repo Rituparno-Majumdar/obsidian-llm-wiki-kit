@@ -8,7 +8,7 @@
 ## Step 1 — Copy the template vault
 
 ```bash
-git clone https://github.com/your-username/obsidian-llm-wiki-kit.git
+git clone https://github.com/Rituparno-Majumdar/obsidian-llm-wiki-kit.git
 cp -r obsidian-llm-wiki-kit/template-vault ~/my-second-brain
 ```
 
@@ -65,11 +65,11 @@ Open `CLAUDE.md` (or `SYSTEM_PROMPT.md`) and replace every instance of
 `{{ORCHESTRATOR_NAME}}` with a name of your choice. This is the persona your
 LLM will use when acting as the PKM orchestrator.
 
-Common choices: Archivist, Nemo, Sage, Keeper, Atlas.
+Common choices: Keeper, Sage, Atlas, Curator, Guide.
 
 ```bash
 # Example: replace in CLAUDE.md
-sed -i '' 's/{{ORCHESTRATOR_NAME}}/Archivist/g' ~/my-second-brain/CLAUDE.md
+sed -i '' 's/{{ORCHESTRATOR_NAME}}/Curator/g' ~/my-second-brain/CLAUDE.md
 ```
 
 ---

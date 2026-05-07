@@ -1,6 +1,6 @@
 # obsidian-llm-wiki-kit
 
-**A prompt-engineering starter kit for building a self-growing personal knowledge base in Obsidian, powered by any LLM.**
+**A prompt-engineering starter kit for building a self-growing personal knowledge base in Obsidian — works with Claude Code, ChatGPT, Gemini, and local models — Claude Code recommended for full features.**
 
 Drop notes into folders. Ask your LLM to research, ingest, and synthesize. Your wiki grows and cross-links itself — automatically, incrementally, permanently.
 
@@ -70,7 +70,7 @@ See [`template-vault/agents/README.md`](template-vault/agents/README.md) to crea
 
 ### 6. Test it
 
-Type: `Lookup zettelkatten`
+Type: `Lookup zettelkasten`
 
 Your LLM should search the wiki, find nothing (empty vault is correct), and confirm it's ready for its first Ingest.
 
@@ -82,7 +82,7 @@ Instead of configuring manually, paste [`meta-prompt-wizard/WIZARD.md`](meta-pro
 
 - A fully populated `SYSTEM_PROMPT.md` (or `CLAUDE.md` for Claude Code)
 - Domain agent files — one per topic you care about
-- A vault initialization shell script
+- Vault initialization scripts (bash + PowerShell)
 - Your personal routing table
 
 See [`meta-prompt-wizard/README.md`](meta-prompt-wizard/README.md) for details and example transcripts.
@@ -91,7 +91,7 @@ See [`meta-prompt-wizard/README.md`](meta-prompt-wizard/README.md) for details a
 
 ## Features
 
-- **8 built-in commands** — `Lookup`, `Ingest`, `Research`, `Query`, `Lint`, `Synthesize`, `Compare`, `fetch`
+- **8 built-in commands** — `Lookup`, `Ingest`, `Research`, `Query`, `Lint`, `Synthesize`, `Compare`, `Fetch`
 - **Domain agent system** — create specialist subagents for any research area
 - **Karpathy enrichment protocol** — every ingest cross-links 3–5 existing concept pages automatically
 - **Zettelkasten structure** — concepts, entities, sources, comparisons — all properly typed and linked
@@ -106,12 +106,12 @@ See [`meta-prompt-wizard/README.md`](meta-prompt-wizard/README.md) for details a
 
 ```mermaid
 flowchart TD
-    U([User]) -->|command| O[Orchestrator\nCLAUDE.md / SYSTEM_PROMPT.md]
+    U([User]) -->|command| O[Orchestrator<br>CLAUDE.md / SYSTEM_PROMPT.md]
     O -->|Lookup / Query| W[(wiki/)]
-    O -->|Research| DA[Domain Agent\nraw/research/]
-    O -->|Ingest| S[Source Page\nwiki/sources/]
-    S -->|enrichment pass| C[Concept Pages\nwiki/concepts/]
-    S -->|enrichment pass| E[Entity Pages\nwiki/entities/]
+    O -->|Research| DA[Domain Agent<br>raw/research/]
+    O -->|Ingest| S[Source Page<br>wiki/sources/]
+    S -->|enrichment pass| C[Concept Pages<br>wiki/concepts/]
+    S -->|enrichment pass| E[Entity Pages<br>wiki/entities/]
     O -->|Lint| L[Codex Agent]
     L -->|report| U
     O -->|Synthesize / Compare| N[Nexus Agent]

@@ -39,17 +39,30 @@ The orchestrator should describe its role, the vault structure, and the
 available commands (Lookup, Ingest, Research, etc.). If it responds with
 generic behavior, `CLAUDE.md` is not being read — check Step 3.
 
-### 3. Set your orchestrator name
+### 3. Copy example agents (optional)
+
+The repo includes three example agents (Archivist, Codex, Nexus) in `template-vault/agents/examples/`. Claude Code only loads agents from `.claude/agents/` inside your vault. To activate them:
+
+```bash
+mkdir -p <your-vault>/.claude/agents
+cp template-vault/agents/examples/*.md <your-vault>/.claude/agents/
+```
+
+You can also skip this and create your own agents using `template-vault/agents/_TEMPLATE.md`.
+
+### 4. Set your orchestrator name
 
 In `CLAUDE.md`, replace `{{ORCHESTRATOR_NAME}}` with a name of your choice:
 
 ```bash
-sed -i '' 's/{{ORCHESTRATOR_NAME}}/Archivist/g' ~/my-second-brain/CLAUDE.md
+sed -i '' 's/{{ORCHESTRATOR_NAME}}/Curator/g' ~/my-second-brain/CLAUDE.md
 ```
+
+> Linux users: use `sed -i` without the `''`.
 
 Restart the Claude Code session after editing `CLAUDE.md`.
 
-### 4. Add domain agents
+### 5. Add domain agents
 
 Agents live in `.claude/agents/` inside your vault. Each agent is a Markdown
 file following the schema in `template-vault/agents/_TEMPLATE.md`.
@@ -77,7 +90,7 @@ to match the agents you create:
 
 See [08-creating-agents.md](08-creating-agents.md) for the full agent design guide.
 
-### 5. Test with Lookup
+### 6. Test with Lookup
 
 ```
 Lookup zettelkasten
@@ -86,7 +99,7 @@ Lookup zettelkasten
 Expected: the orchestrator runs `rg -li "zettelkasten" wiki/`, checks
 `wiki/index.md`, finds no results (empty vault is correct), and reports this.
 
-### 6. Run your first Ingest
+### 7. Run your first Ingest
 
 ```
 Ingest https://example.com/some-article
@@ -107,7 +120,7 @@ Claude Code has **full feature parity** with the system design:
 | Sub-agents | Full — separate `.claude/agents/*.md` files |
 | Web search | Full — agents can fetch URLs |
 | CLAUDE.md auto-load | Full — no manual paste required |
-| Lint command | Full — spawns aleph agent |
+| Lint command | Full — spawns codex agent |
 | Research + file save | Full — output written to `raw/research/` |
 
 ---

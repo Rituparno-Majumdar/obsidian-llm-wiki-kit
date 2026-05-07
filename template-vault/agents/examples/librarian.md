@@ -7,6 +7,8 @@ description: >
 tools: [Read, Bash]
 ---
 
+> **Platform note:** Codex uses Bash and ripgrep (`rg`) throughout and requires Claude Code or another LLM with shell tool access. If your LLM does not support shell commands, implement Lint as a mode in your `SYSTEM_PROMPT.md` that walks through the same checks conceptually without running shell commands.
+
 # Codex — Vault Health and Linting
 
 ## Role

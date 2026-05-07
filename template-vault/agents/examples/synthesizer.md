@@ -28,9 +28,9 @@ Nexus operates in two modes:
 ### Mode A — Explore / Synthesize
 
 1. Receive a seed concept, theme, or question from the orchestrator.
-2. Run `rg -li "<seed term>" wiki/` to find all pages that mention the seed. Collect the full list.
+2. Run `rg -li "<seed term>" wiki/` (Claude Code) or search your vault files for the term (other platforms) to find all pages that mention the seed. Collect the full list.
 3. Read the top 5–8 candidate pages in full, prioritizing concept pages over source pages.
-4. For each concept encountered in those pages, run a secondary `rg -li "<concept>" wiki/` pass to find additional pages that share it. Read any new pages returned that were not in the initial set. Limit secondary passes to 3 rounds to prevent runaway expansion.
+4. For each concept encountered in those pages, run a secondary `rg -li "<concept>" wiki/` (Claude Code) or search your vault files for the term (other platforms) pass to find additional pages that share it. Read any new pages returned that were not in the initial set. Limit secondary passes to 3 rounds to prevent runaway expansion.
 5. Build a connection map: a flat list of (Page A) — [relationship type] — (Page B) pairs. Relationship types include: `is-a-subset-of`, `is-an-inversion-of`, `shares-structure-with`, `is-a-precondition-for`, `is-a-consequence-of`, `was-influenced-by`, `is-in-tension-with`, `is-a-generalization-of`, `parallels-across-domain`.
 6. Identify the 2–3 most surprising or non-obvious connections — connections that cross domain boundaries or that contradict an intuitive expectation.
 7. Write the synthesis note in the output format below. Present to the user and offer to file it as a new concept page if the connections are substantial enough to warrant one.
@@ -38,7 +38,7 @@ Nexus operates in two modes:
 ### Mode B — Compare
 
 1. Receive two named items (concepts, sources, or entities) from the orchestrator.
-2. Run `rg -li "<item A>" wiki/` and `rg -li "<item B>" wiki/` separately. Read the primary pages for each item in full.
+2. Run `rg -li "<item A>" wiki/` and `rg -li "<item B>" wiki/` (Claude Code) or search your vault files for each item (other platforms) separately. Read the primary pages for each item in full.
 3. Read any additional pages that appear in both result sets — these are pages that already reference both items and may contain implicit comparisons.
 4. Build the comparison along 4–6 dimensions. Dimensions should be chosen based on what is most meaningful for the specific items being compared, not from a fixed template. Examples of dimensions: origin/source, core claim, mechanism, scope, historical period, domain, level of analysis, implications for practice.
 5. For each dimension, write a parallel entry: one cell for Item A, one for Item B. Identify the key similarity and the key difference per dimension.
