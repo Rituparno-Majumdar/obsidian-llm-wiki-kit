@@ -4,6 +4,8 @@
 
 Drop notes into folders. Ask your LLM to research, ingest, and synthesize. Your wiki grows and cross-links itself — automatically, incrementally, permanently.
 
+⭐ If this is useful to you, a star helps others find it.
+
 ---
 
 ## The Idea (Karpathy's LLM Wiki)
