@@ -112,9 +112,9 @@ flowchart TD
     O -->|Ingest| S[Source Page<br>wiki/sources/]
     S -->|enrichment pass| C[Concept Pages<br>wiki/concepts/]
     S -->|enrichment pass| E[Entity Pages<br>wiki/entities/]
-    O -->|Lint| L[Codex Agent]
+    O -->|Lint| L[Lint Agent]
     L -->|report| U
-    O -->|Synthesize / Compare| N[Nexus Agent]
+    O -->|Synthesize / Compare| N[Synthesis Agent]
     N -->|wiki/comparisons/| W
     DA -->|save output| R[(raw/research/)]
     R -->|Ingest command| O
